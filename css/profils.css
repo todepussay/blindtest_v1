@@ -97,38 +97,119 @@ main {
 }
 
 .contacts {
-    width: 100%;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 }
 
 .contact {
-    min-width: 45%;
-    min-height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 47%;
+    max-width: 47%;
     background-color: var(--blue);
     border-radius: 20px;
     padding: 10px 20px;
-    box-shadow: 21px 21px 15px -3px rgba(0,0,0,0.1);
     margin: 10px;
-    margin-top: 50px;
 }
 
-.logo {
+.contact-img {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-img > img {
     width: 100px;
-    margin: 0 50px;
+    object-fit: cover;
     border-radius: 50%;
 }
 
 .contact-description {
-    width: 50%;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.contact-description > span {
     font-size: 25px;
+}
+
+@media screen and (max-width: 1920px){
+    .contact-img > img {
+        width: 80px;
+    }
+
+    .contact-description > span {
+        font-size: 20px;
+    }
+
+    .contact {
+        margin: 5px;
+    }
+
+    .description > h2 {
+        font-size: 40px;
+    }
+
+    .description > .description-box {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 1600px){
+    .contact {
+        min-width: 100%;
+        max-width: 100%;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .description {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .contacts {
+        margin-top: 15px;
+    }
+
+    .general {
+        flex-direction: column;
+    }
+    
+    .btn {
+        font-size: 30px;
+        margin-top: 20px;
+    }
+
+    .description > .description-box {
+        padding : 30px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .description > .description-box {
+        font-size: 15px;
+    }
+
+    .contact-description > span {
+        font-size: 15px;
+    }
+
+    .description > .description-box {
+        padding : 20px;
+    }
+
+    .contact-img > img {
+        width: 60px;
+    }
 }

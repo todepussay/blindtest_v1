@@ -50,10 +50,6 @@ $activity = $activity->fetchAll();
                     <div class="btn">
                         <a href="setting.php"><ion-icon name="settings-outline"></ion-icon></a>
                     </div>
-                <?php else : ?>
-                    <div class="btn">
-                        
-                    </div>
                 <?php endif; ?>
 
             </div>
@@ -66,29 +62,49 @@ $activity = $activity->fetchAll();
                 <h2>Description</h2>
                 
                 <div class="description-box">
-                    <p><?= $user["bio"] ?></p>
+                    <p>
+                        <?php
+                            if (!empty($user["bio"])) {
+                                echo $user["bio"];
+                            } else {
+                                echo "Ce joueur n'a pas de description.";
+                            }
+                        ?>
+                    </p>
                 </div>
 
                 <div class="contacts">
 
                     <?php if(!empty($user["discord"])): ?>
                         <div id="discord" class="contact">
-                            <img class="logo" src="asset/discord.png" alt="discord logo">
-                            <span class="contact-description"><?= $user["discord"] ?></span>
+                            <div class="contact-img">
+                                <img src="asset/discord.png" alt="discord logo">
+                            </div>
+                            <div class="contact-description">
+                                <span><?= $user["discord"] ?></span>
+                            </div>
                         </div>
                     <?php endif; ?>
 
                     <?php if(!empty($user["anilist"])): ?>
                         <div id="anilist" class="contact">
-                            <img class="logo" src="asset/anilist.png" alt="anilist logo">
-                            <span class="contact-description"><?= $user["anilist"] ?></span>
+                            <div class="contact-img">
+                                <img src="asset/anilist.png" alt="anilist logo">
+                            </div>
+                            <div class="contact-description">
+                                <span><?= $user["anilist"] ?></span>
+                            </div>
                         </div>
                     <?php endif; ?>
 
                     <?php if(!empty($user['twitter'])): ?>
                         <div id="twitter" class="contact">
-                            <img class="logo" src="asset/twitter.png" alt="twitter logo">
-                            <span class="contact-description"><?= $user["twitter"] ?></span>
+                            <div class="contact-img">
+                                <img src="asset/twitter.png" alt="twitter logo">
+                            </div>
+                            <div class="contact-description">
+                                <span><?= $user["twitter"] ?></span>
+                            </div>
                         </div>
                     <?php endif; ?>
 
@@ -120,11 +136,51 @@ $activity = $activity->fetchAll();
                             </p>
                         </div>
                     </div>
+                    <div class="activity">
+                        <div class="user-profils">
+                            <img src="asset/profils_picture/<?= $activity[$i]["pp"] ?>" alt="Profil user">
+                        </div>
+                        <div class="user-activity">
+                            <p class="activity-details">
+                                <span class="activity-date">
+                                    <?php
+
+                                        $date = new DateTime($activity[$i]["date"]);
+                                        $date = $date->format("d/m/Y à H:i");
+                                        echo $date;
+                                    
+                                    ?>
+                                </span><br>
+                                <span class="activity-pseudo"><?= $activity[$i]["pseudo"] ?></span> a fait un blindtest sur les <span class="activity-categorie"><?= ucfirst($activity[$i]["categorie"]) ?></span>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="user-profils">
+                            <img src="asset/profils_picture/<?= $activity[$i]["pp"] ?>" alt="Profil user">
+                        </div>
+                        <div class="user-activity">
+                            <p class="activity-details">
+                                <span class="activity-date">
+                                    <?php
+
+                                        $date = new DateTime($activity[$i]["date"]);
+                                        $date = $date->format("d/m/Y à H:i");
+                                        echo $date;
+                                    
+                                    ?>
+                                </span><br>
+                                <span class="activity-pseudo"><?= $activity[$i]["pseudo"] ?></span> a fait un blindtest sur les <span class="activity-categorie"><?= ucfirst($activity[$i]["categorie"]) ?></span>.
+                            </p>
+                        </div>
+                    </div>
                 <?php endfor; ?>
             </div>
 
         </main>
     </div>
+
+    <?php require_once "footer.php"; ?>
 
     
     

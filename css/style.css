@@ -23,6 +23,8 @@ header {
     align-items: center;
     box-shadow: 0px 20px 20px 5px rgba(0,0,0,0.1);
     height: 120px;
+    z-index: 100;
+    position: relative;
 }
 
 header > nav {
@@ -115,6 +117,62 @@ header > nav > #right > a > img {
 }
 /* MAIN */
 
+.notification {
+    background-color: var(--dark-blue);
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    animation: notification-open 0.5s ease-in-out;
+}
+
+.notification > .notification-content {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.notification > .notification-content > p {
+    color: var(--white);
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.notification > .notification-close {
+    color: var(--white);
+    font-size: 40px;
+    cursor: pointer;
+    display: flex;
+}
+
+@keyframes notification-open {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes notification-close {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+}
+
 .container {
     background: rgb(6,101,166);
     background: linear-gradient(59deg, rgba(6,101,166,1) 23%, rgba(11,63,98,1) 94%);
@@ -131,7 +189,7 @@ header > nav > #right > a > img {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 80px;
+    margin-top: 100px;
 }
 
 .title {
@@ -155,6 +213,9 @@ main {
 
 .home-activity {
     width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .home-activity > h2 {
@@ -215,7 +276,6 @@ main {
 
 .new {
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: var(--blue);
     border-radius: 10px;

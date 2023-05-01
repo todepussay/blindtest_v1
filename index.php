@@ -4,10 +4,21 @@ session_start();
 
 require('connect.php');
 
-$sql = "SELECT users.user_id as 'id', users.username as 'pseudo', categories.name as 'categorie', score.date_score as 'date', users.picture as 'pp' FROM users, categories, score WHERE users.user_id = score.user_id AND categories.id = score.categorie_id LIMIT 20";
+$sql = "SELECT users.user_id as 'id', users.username as 'pseudo', categories.name as 'categorie', score.date_score as 'date', users.picture as 'pp' FROM users, categories, score WHERE users.user_id = score.user_id AND categories.id = score.categorie_id LIMIT 10";
 $sql = $connect->prepare($sql);
 $sql->execute();
 $activity = $sql->fetchAll();
+
+$news = "SELECT * FROM news LIMIT 3";
+$news = $connect->prepare($news);
+$news->execute();
+$news = $news->fetchAll();
+
+if(isset($_SESSION['user'])){
+    if(empty($_SESSION['user']["bio"]) || $_SESSION['user']['picture'] == "0.png"){
+        $notification = "Completez votre profils, ajoutez une photo de profil ou une description !";
+    }
+}
 
 ?>
 
@@ -17,13 +28,24 @@ $activity = $sql->fetchAll();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/blindtest2/">
+    <base href="/blindtest/">
     <title>Accueil - Blindtest</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <?php require_once "header.php"; ?>
+
+    <?php if(isset($notification)): ?>
+        <div class="notification">
+            <div class="notification-content">
+                <p><?= $notification ?></p>
+            </div>
+            <div class="notification-close">
+                <ion-icon name="close-outline"></ion-icon>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="container">
         <div class="content">
@@ -67,21 +89,23 @@ $activity = $sql->fetchAll();
                         
                     <h2>Nouveautés</h2>
 
-                    <div class="new">
-                        <p class="new-details">
-                            <span class="new-version">v2.0</span><br>
-                            <span class="new-date">15 juillet 2003</span><br><br>
-                            Ajout de la fonctionnalité Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis labore obcaecati culpa quam natus, laborum amet ut odio, assumenda rerum laudantium nostrum quaerat reiciendis consequatur, quo modi facere expedita?
-                        </p>
-                    </div>
+                    <?php for($i = 0; $i < count($news); $i++): ?>
+                        <div class="new">
+                            <p class="new-details">
+                                <span class="new-version"><?= $news[$i]["version"] ?></span><br>
+                                <span class="new-date">
+                                    <?php
 
-                    <div class="new">
-                        <p class="new-details">
-                            <span class="new-version">v1.0</span><br>
-                            <span class="new-date">14 juillet 2003</span><br><br>
-                            Ajout de la fonctionnalité Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis labore obcaecati culpa quam natus, laborum amet ut odio, assumenda rerum laudantium nostrum quaerat reiciendis consequatur, quo modi facere expedita?
-                        </p>
-                    </div>
+                                        $date = new DateTime($news[$i]["date"]);
+                                        $date = $date->format("d/m/Y à H:i");
+                                        echo $date;
+                                    
+                                    ?>
+                                </span><br><br>
+                                <?= $news[$i]["text"] ?>
+                            </p>
+                        </div>
+                    <?php endfor; ?>
 
                 </div>
 
@@ -91,6 +115,18 @@ $activity = $sql->fetchAll();
     </div>
 
     <?php require_once "footer.php"; ?>
+
+    <script>
+        let close_notification = document.querySelector(".notification-close");
+        let notification = document.querySelector(".notification");
+
+        close_notification.addEventListener("click", () => {
+            notification.style.animation = "notification-close 0.5s ease forwards";
+            setTimeout(() => {
+                notification.style.display = "none";                
+            }, 500);
+        });
+    </script>
     
 </body>
 </html>
