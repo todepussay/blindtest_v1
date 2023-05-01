@@ -1,0 +1,254 @@
+/* LOGIN */
+
+.container-connexion {
+    height: calc(100vh - 120px);
+    display: flex;
+}
+
+.login {
+    width: 50%;
+    background: rgb(156,156,156);
+    background: linear-gradient(59deg, rgba(156,156,156,1) 23%, rgba(216,216,216,1) 94%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login > h2 {
+    font-size: 45px;
+    color: var(--blue);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"], 
+input[type="password"] {
+    width: 600px;
+    font-size: 30px;
+    padding: 10px 30px;
+    border: transparent;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    margin: 40px 0;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder, 
+input[type="password"]::placeholder {
+    opacity: 0.7;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus, 
+input[type="password"]:focus {
+    outline: none;
+    border-bottom: 2px solid var(--orange);
+}
+
+.password {
+    width: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.password > input[type="password"],
+.password > input[type="text"] {
+    width: 600px;
+    margin-right: 20px;
+}
+
+.password > button {
+    border: transparent;
+    background: transparent;
+    font-size: 30px;
+    display: flex;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    width: 300px;
+    font-size: 30px;
+    padding: 10px 30px;
+    border: transparent;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    margin: 40px 0;
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--orange);
+    transition: 0.3s;
+}
+
+.signin {
+    width: 50%;
+    background: rgb(6,101,166);
+    background: linear-gradient(59deg, rgba(6,101,166,1) 23%, rgba(11,63,98,1) 94%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signin > h2 {
+    font-size: 35px;
+    color: var(--white);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.message {
+    width: 600px;
+    font-size: 30px;
+    padding: 10px 30px;
+    text-align: center;
+}
+
+.error {
+    color: rgb(173, 40, 40);
+}
+
+.valid {
+    color: rgb(40, 173, 40);
+}
+
+@media screen and (max-width: 1920px){
+
+    .login > h2 {
+        font-size: 30px;
+    }
+    
+    .signin > h2 {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 1440px){
+
+    .login > h2 {
+        margin: 40px;
+    }
+
+    .signin > h2 {
+        margin: 40px;
+    }
+
+    input[type="text"],
+    input[type="email"], 
+    input[type="password"] {
+        font-size: 20px;
+        width: 300px;
+        margin: 20px 0;
+    }
+
+    .password {
+        width: 300px;
+    }
+
+    .password > input[type="password"],
+    .password > input[type="text"] {
+        width: 300px;
+    }
+
+    .password > button {
+        font-size: 20px;
+    }
+
+    .message {
+        width: 300px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .login > h2 {
+        margin: 30px;
+    }
+
+    .signin > h2 {
+        margin: 30px;
+    }
+    
+    input[type="text"],
+    input[type="email"], 
+    input[type="password"] {
+        font-size: 15px;
+        width: 200px;
+        margin: 20px 0;
+    }
+
+    .password {
+        width: 200px;
+    }
+
+    .password > input[type="password"],
+    .password > input[type="text"] {
+        width: 200px;
+    }
+
+    .password > button {
+        font-size: 15px;
+    }
+
+    input[type="submit"] {
+        width: 200px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 760px){
+
+    .login, .signin {
+        width: 100%;
+    }
+
+    .container-connexion {
+        display: block;
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 400px){
+    .login > h2, .signin > h2 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 150px;
+        font-size: 10px;
+        margin: 10px 0;
+    } 
+
+    .password {
+        width: 150px;
+    }
+
+    .password > input[type="password"],
+    .password > input[type="text"] {
+        width: 150px;
+        margin-right: 5px;
+    }
+
+    .password > button {
+        font-size: 10px;
+    }
+
+    input[type="submit"] {
+        width: 150px;
+        font-size: 10px;
+    }
+
+    .message {
+        width: 150px;
+        font-size: 15px;
+    }
+}
