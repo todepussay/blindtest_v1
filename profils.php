@@ -48,7 +48,7 @@ $activity = $activity->fetchAll();
 
                 <?php if($user["user_id"] == $_SESSION['user']["user_id"]): ?>
                     <div class="btn">
-                        <a href="setting.php"><ion-icon name="settings-outline"></ion-icon></a>
+                        <a href="profiles-editor.php?id=<?= $user["user_id"] ?>"><ion-icon name="settings-outline"></ion-icon></a>
                     </div>
                 <?php endif; ?>
 

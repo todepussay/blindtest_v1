@@ -96,10 +96,10 @@ if (isset($_SESSION['username'])) {
     
                     header('Location: index.php');
                 } else {
-                    $error = "Nom d'utilisateur ou mot de passe incorrect";
+                    $error_login = "Nom d'utilisateur ou mot de passe incorrect";
                 }
             } else {
-                $error = "Veuillez remplir tous les champs";
+                $error_login = "Veuillez remplir tous les champs";
             }
         }
     }
@@ -132,6 +132,14 @@ if (isset($_SESSION['username'])) {
                 <input type="password" name="password" placeholder="Mot de passe" id="password-login">
                 <button type="button" id="btn-login"><ion-icon name="eye-off-outline"></ion-icon></button>
             </div>
+
+            <p class="message error">
+                <?php
+                    if (isset($error_login)){
+                        echo $error_login;
+                    }
+                ?>
+            </p>
         
             <input type="submit" value="Se connecter">
 

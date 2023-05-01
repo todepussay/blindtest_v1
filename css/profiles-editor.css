@@ -1,0 +1,398 @@
+h1 {
+    color: var(--white);
+    font-size: 50px;
+    text-align: center;
+}
+
+form {
+    width: 800px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.element {
+    background-color: var(--blue);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.element > label,
+.element > p {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.element > input[type="text"],
+.element > input[type="email"] {
+    width: 70%;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: transparent;
+}
+
+.element > input[type="text"]:focus,
+.element > input[type="email"]:focus {
+    outline: none;
+    border-bottom: 2px solid var(--orange);
+}
+
+.element > input[type="text"]::placeholder,
+.element > input[type="email"]::placeholder {
+    opacity: 0.7;
+}
+
+.password {
+    width: 70%;
+    font-size: 30px;
+    padding: 10px 30px;
+    border: transparent;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    margin: 20px 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password > input[type="password"],
+.password > input[type="text"] {
+    width: 90%;
+    font-size: 25px;
+    border: transparent;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+.password > input[type="password"]::placeholder,
+.password > input[type="text"]::placeholder {
+    opacity: 0.7;
+}
+
+.password:focus-within {
+    outline: none;
+    border-bottom: 2px solid var(--orange);
+}
+
+.password > button {
+    width: 5%;
+    font-size: 30px;
+    border: transparent;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+}
+
+.element-img-input {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+
+.element-img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.element-img > img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
+.element-input {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.element-input > input {
+    width: 300px;
+    height: 300px;
+    border: dashed 2px black;
+    color: transparent;
+}
+
+.element-input > input[type="file"]::-webkit-file-upload-button {
+    display: none;
+}
+
+.element-input > input[type="file"]::before {
+    content: 'Glisser et déposer une image ici ou cliquer pour sélectionner une image';
+    color: black;
+    background-color: var(--white);
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    white-space: pre-wrap;
+}
+
+textarea {
+    width: 80%;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 20px;
+    height: 200px;
+}
+
+textarea:focus {
+    outline: none;
+    border-bottom: 5px solid var(--orange);
+}
+
+.contact {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.contact > .contact-img {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact > .contact-img > img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.contact > .contact-content {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.contact > .contact-content > input[type="text"],
+.contact > .contact-content > input[type="email"] {
+    width: 70%;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: transparent;
+    margin: 10px 0;
+}
+
+.contact > .contact-content > input[type="text"]:focus,
+.contact > .contact-content > input[type="email"]:focus {
+    outline: none;
+    border-bottom: 2px solid var(--orange);
+}
+
+.contact > .contact-content > input[type="text"]::placeholder,
+.contact > .contact-content > input[type="email"]::placeholder {
+    opacity: 0.7;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+input[type="submit"] {
+    width: 400px;
+    font-size: 35px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: transparent;
+    margin: 10px 0;
+    background-color: var(--orange);
+    color: var(--white);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1440px){
+    .element {
+        width: 600px;
+    }
+    form {
+        width: 600px;
+    }
+
+    .element-img > img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .element-input > input {
+        width: 200px;
+        height: 200px;
+    }
+
+    .contact > .contact-img > img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .contact > .contact-content > input[type="text"],
+    .contact > .contact-content > input[type="email"] {
+        width: 80%;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 960px){
+    .element {
+        width: 400px;
+    }
+    form {
+        width: 400px;
+    }
+
+    .element-img > img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .element-input > input {
+        width: 150px;
+        height: 150px;
+    }
+
+    textarea {
+        font-size: 15px;
+    }
+
+    .element > input[type="text"],
+    .element > input[type="email"] {
+        font-size: 15px;
+    }
+
+    .password > input[type="text"],
+    .password > input[type="password"] {
+        font-size: 15px;
+    }
+
+    .contact > .contact-img > img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .contact > .contact-content > input[type="text"],
+    .contact > .contact-content > input[type="email"] {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .element > label,
+    .element > p {
+        font-size: 20px;
+    }
+
+    .content > h1 {
+        font-size: 40px;
+    }
+
+    .submit > input[type="submit"] {
+        width: 300px;
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .contact {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact > .contact-content > input[type="text"],
+    .contact > .contact-content > input[type="email"] {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .contact > .contact-content {
+        margin: 0;
+    }
+
+    .element {
+        width: 250px;
+    }
+
+    .element > input[type="text"],
+    .element > input[type="email"] {
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .password > input[type="text"],
+    .password > input[type="password"] {
+        font-size: 15px;
+    }
+
+    .password {
+        width: 100%;
+    }
+
+    .element-img > img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .element-input > input {
+        width: 80px;
+        height: 80px;
+    }
+
+    .element-input > input[type="file"]::before {
+        content : "Déposer";
+    }
+
+    .contact > .contact-img > img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .contact > .contact-content > input[type="text"],
+    .contact > .contact-content > input[type="email"] {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .submit > input[type="submit"] {
+        width: 200px;
+        font-size: 15px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+}

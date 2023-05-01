@@ -36,16 +36,7 @@ if(isset($_SESSION['user'])){
 
     <?php require_once "header.php"; ?>
 
-    <?php if(isset($notification)): ?>
-        <div class="notification">
-            <div class="notification-content">
-                <p><?= $notification ?></p>
-            </div>
-            <div class="notification-close">
-                <ion-icon name="close-outline"></ion-icon>
-            </div>
-        </div>
-    <?php endif; ?>
+    <?php require "notification.php"; ?>
 
     <div class="container">
         <div class="content">
@@ -117,15 +108,6 @@ if(isset($_SESSION['user'])){
     <?php require_once "footer.php"; ?>
 
     <script>
-        let close_notification = document.querySelector(".notification-close");
-        let notification = document.querySelector(".notification");
-
-        close_notification.addEventListener("click", () => {
-            notification.style.animation = "notification-close 0.5s ease forwards";
-            setTimeout(() => {
-                notification.style.display = "none";                
-            }, 500);
-        });
     </script>
     
 </body>
