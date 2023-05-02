@@ -126,6 +126,7 @@ header > nav > #right > a > img {
     padding: 15px;
     border-radius: 20px;
     position: absolute;
+    text-align: center;
     left: 50%;
     transform: translateX(-50%);
     z-index: 0;
@@ -403,9 +404,6 @@ footer > .right > ul > li > a {
 }
 
 @media screen and (max-width: 1600px){
-    .content {
-        margin-top: 50px;
-    }
     .activity > .user-profils > img {
         width: 60px;
         height: 60px;
@@ -415,9 +413,6 @@ footer > .right > ul > li > a {
     .activity > .user-activity > .activity-details {
         font-size: 15px;
     }
-}
-
-@media screen and (max-width: 1440px){
     .activity {
         width: 100%;
     }
@@ -430,6 +425,10 @@ footer > .right > ul > li > a {
 
     .activity > .user-activity > .activity-details {
         font-size: 20px;
+    }
+
+    .notification {
+        width: 100%;
     }
 }
 

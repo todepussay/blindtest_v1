@@ -7,6 +7,133 @@ if(!isset($_GET['id']) || empty($_GET['id']) || $_SESSION['user']["user_id"] != 
     exit();
 }
 
+require_once "connect.php";
+
+$message = "";
+$message_error = "";
+
+if (isset($_POST['submit'])){
+    if (!empty($_POST['username'])){
+        if ($_POST['username'] != $_SESSION['user']["username"]){
+            $username = htmlspecialchars($_POST['username']);
+
+            $sql = "SELECT * FROM users WHERE username = :username";
+            $sql = $connect->prepare($sql);
+            $sql->bindParam(":username", $username);
+            $sql->execute();
+            $table = $sql->fetchAll();
+
+            if (count($table) == 0){
+
+                $sql1 = "UPDATE users SET username = :username WHERE user_id = :id";
+                $sql1 = $connect->prepare($sql1);
+                $sql1->bindParam(":username", $username);
+                $sql1->bindParam(":id", $_SESSION['user']["user_id"]);
+                $sql1->execute(); 
+
+                $message .= "Votre nom d'utilisateur a bien été modifié <br>";
+
+            } else {
+                $message_error .= "Le nom d'utilisateur est déjà utilisé <br>";
+            }
+        } else {
+            $message_error .= "Vous pouvez pas mettre le même nom d'utilisateur. <br>";
+        }
+    }
+
+    if (!empty($_POST['email'])){
+        if ($_POST['email'] != $_SESSION['user']["email"]){
+            $email = htmlspecialchars($_POST['email']);
+
+            $sql = "SELECT * FROM users WHERE email = :email";
+            $sql = $connect->prepare($sql);
+            $sql->bindParam(":email", $email);
+            $sql->execute();
+            $table = $sql->fetchAll();
+
+            if (count($table) == 0){
+
+                $sql1 = "UPDATE users SET email = :email WHERE user_id = :id";
+                $sql1 = $connect->prepare($sql1);
+                $sql1->bindParam(":email", $email);
+                $sql1->bindParam(":id", $_SESSION['user']["user_id"]);
+                $sql1->execute(); 
+
+                $message .= "Votre adresse mail a bien été modifié <br>";
+
+            } else {
+                $message_error .= "L'adresse mail est déjà utilisée <br>";
+            }
+        } else {
+            $message_error .= "Vous pouvez pas mettre la même adresse mail. <br>";
+        }
+    }
+
+    if (!empty($_POST['password'])){
+        if ($_POST['password'] == $_POST['password2']){
+            if (!password_verify($_POST['password'], $_SESSION['user']["password"])){
+                
+                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+                $sql = "UPDATE users SET password = :password WHERE user_id = :id";
+                $sql = $connect->prepare($sql);
+                $sql->bindParam(":password", $password);
+                $sql->bindParam(":id", $_SESSION['user']["user_id"]);
+                $sql->execute(); 
+
+                $message .= "Votre mot de passe a bien été modifié <br>";
+
+            } else {
+                $message_error .= "Vous pouvez pas mettre le même mot de passe";
+            }
+
+        } else {
+            $message_error .= "Les mots de passe ne correspondent pas <br>";
+        }
+    }
+
+    if (!empty($_FILES['picture']['name'])){
+        $picture = $_FILES['picture']['name'];
+        $picture_tmp = $_FILES['picture']['tmp_name'];
+        $picture_size = $_FILES['picture']['size'];
+        $picture_error = $_FILES['picture']['error'];
+
+        $picture_extension = strrchr($picture, ".");
+
+        $extensions_autorisees = array('.png', '.PNG', '.jpg', '.JPG', '.jpeg', '.JPEG');
+
+        if (in_array($picture_extension, $extensions_autorisees)){
+            if ($picture_size <= 1000000){
+                unlink("asset/profils_picture/" . $_SESSION['user']["picture"]);
+                $picture_name = $_SESSION['user']["user_id"] . $picture_extension;
+                $picture_destination = "asset/profils_picture/" . $picture_name;
+                move_uploaded_file($picture_tmp, $picture_destination);
+
+                $sql = "UPDATE users SET picture = :picture WHERE user_id = :id";
+                $sql = $connect->prepare($sql);
+                $sql->bindParam(":picture", $picture_name);
+                $sql->bindParam(":id", $_SESSION['user']["user_id"]);
+                $sql->execute(); 
+
+                $message .= "Votre photo de profil a bien été modifié <br>";
+
+            } else {
+                $message_error .= "Votre photo de profil ne doit pas dépasser 1Mo <br>";
+            }
+        } else {
+            $message_error .= "Votre photo de profil doit être au format png, jpg ou jpeg <br>";
+        }
+    }
+
+    $user = "SELECT * FROM users WHERE user_id = :id";
+    $user = $connect->prepare($user);
+    $user->bindParam(":id", $_SESSION['user']["user_id"]);
+    $user->execute();
+    $user = $user->fetch();
+
+    $_SESSION['user'] = $user;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +154,18 @@ if(!isset($_GET['id']) || empty($_GET['id']) || $_SESSION['user']["user_id"] != 
         <div class="content">
 
             <h1>Modifier votre profils</h1>
+
+            <?php if(isset($message)) : ?>
+                <div class="message">
+                    <p><?= $message ?></p>
+                </div>
+            <?php endif; ?>
+
+            <?php if(isset($message_error)) : ?>
+                <div class="message-error">
+                    <p><?= $message_error ?></p>
+                </div>
+            <?php endif; ?>
 
             <form action="" method="post" enctype="multipart/form-data">
 
@@ -103,7 +242,7 @@ if(!isset($_GET['id']) || empty($_GET['id']) || $_SESSION['user']["user_id"] != 
                 </div>
 
                 <div class="submit">
-                    <input type="submit" value="Modifier votre profils">
+                    <input type="submit" name="submit" value="Modifier votre profils">
                 </div>
 
             </form>

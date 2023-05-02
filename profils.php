@@ -11,7 +11,7 @@ $sql->execute();
 $user = $sql->fetchAll();
 $user = $user[0];
 
-$activity = "SELECT users.username as 'pseudo', categories.name as 'categorie', score.date_score as 'date', users.picture as 'pp' FROM users, categories, score WHERE users.user_id = score.user_id AND categories.id = score.categorie_id AND users.user_id = :id LIMIT 20";
+$activity = "SELECT users.username as 'pseudo', categories.name as 'categorie', score.date_score as 'date', users.picture as 'pp' FROM users, categories, score WHERE users.user_id = score.user_id AND categories.id = score.categorie_id AND users.user_id = :id LIMIT 10";
 $activity = $connect->prepare($activity);
 $activity->bindParam(":id", $_GET['id']);
 $activity->execute();

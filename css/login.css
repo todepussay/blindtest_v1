@@ -151,6 +151,36 @@ input[type="submit"]:hover {
     }
 }
 
+@media screen and (max-width: 1600px){
+    .login > h2,
+    .signin > h2 {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        font-size: 25px;
+        width: 400px;
+        margin: 15px 0;
+    }
+
+    .password {
+        width: 400px;
+        margin: 15px 0;
+    }
+
+    .password > input[type="password"],
+    .password > input[type="text"] {
+        width: 90%;
+        font-size: 25px;
+    }
+
+    input[type="submit"] {
+        margin-top: 0;
+    }
+}
+
 @media screen and (max-width: 1440px){
 
     .login > h2 {
