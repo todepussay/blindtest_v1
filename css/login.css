@@ -192,10 +192,9 @@ input[type="submit"]:hover {
     }
 
     input[type="text"],
-    input[type="email"], 
-    input[type="password"] {
+    input[type="email"] {
         font-size: 20px;
-        width: 300px;
+        width: 200px;
         margin: 20px 0;
     }
 
@@ -241,10 +240,7 @@ input[type="submit"]:hover {
 
     .password > input[type="password"],
     .password > input[type="text"] {
-        width: 200px;
-    }
-
-    .password > button {
+        width: 90%;
         font-size: 15px;
     }
 
@@ -286,8 +282,9 @@ input[type="submit"]:hover {
 
     .password > input[type="password"],
     .password > input[type="text"] {
-        width: 150px;
+        width: 90%;
         margin-right: 5px;
+        font-size: 10px;
     }
 
     .password > button {

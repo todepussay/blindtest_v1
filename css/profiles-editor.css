@@ -4,6 +4,20 @@ h1 {
     text-align: center;
 }
 
+.message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.message > p {
+    color: rgb(6, 180, 6);
+}
+
+.error > p {
+    color: rgb(180, 6, 6);
+}
+
 form {
     width: 800px;
     margin-top: 60px;

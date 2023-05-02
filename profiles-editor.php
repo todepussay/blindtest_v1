@@ -125,6 +125,55 @@ if (isset($_POST['submit'])){
         }
     }
 
+    if (!empty($_POST['bio'])){
+
+        $bio = htmlspecialchars($_POST['bio']);
+
+        $sql = "UPDATE users SET bio = :bio WHERE user_id = :id";
+        $sql = $connect->prepare($sql);
+        $sql->bindParam(":bio", $bio);
+        $sql->bindParam(":id", $_SESSION['user']["user_id"]);
+        $sql->execute();
+
+        $message .= "Votre biographie a bien été modifié <br>";
+    }
+
+    if (!empty($_POST["discord"])){
+        $discord = htmlspecialchars($_POST["discord"]);
+
+        $sql = "UPDATE users SET discord = :discord WHERE user_id = :id";
+        $sql = $connect->prepare($sql);
+        $sql->bindParam(":discord", $discord);
+        $sql->bindParam(":id", $_SESSION['user']["user_id"]);
+        $sql->execute();
+
+        $message .= "Votre discord a bien été modifié <br>";
+    }
+
+    if (!empty($_POST['twitter'])){
+        $twitter = htmlspecialchars($_POST['twitter']);
+
+        $sql = "UPDATE users SET twitter = :twitter WHERE user_id = :id";
+        $sql = $connect->prepare($sql);
+        $sql->bindParam(":twitter", $twitter);
+        $sql->bindParam(":id", $_SESSION['user']["user_id"]);
+        $sql->execute();
+
+        $message .= "Votre twitter a bien été modifié <br>";
+    }
+
+    if (!empty($_POST['anilist'])){
+        $anilist = htmlspecialchars($_POST['anilist']);
+
+        $sql = "UPDATE users SET anilist = :anilist WHERE user_id = :id";
+        $sql = $connect->prepare($sql);
+        $sql->bindParam(":anilist", $anilist);
+        $sql->bindParam(":id", $_SESSION['user']["user_id"]);
+        $sql->execute();
+
+        $message .= "Votre anilist a bien été modifié <br>";
+    }
+
     $user = "SELECT * FROM users WHERE user_id = :id";
     $user = $connect->prepare($user);
     $user->bindParam(":id", $_SESSION['user']["user_id"]);
@@ -162,7 +211,7 @@ if (isset($_POST['submit'])){
             <?php endif; ?>
 
             <?php if(isset($message_error)) : ?>
-                <div class="message-error">
+                <div class="message error">
                     <p><?= $message_error ?></p>
                 </div>
             <?php endif; ?>

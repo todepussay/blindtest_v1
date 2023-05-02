@@ -46,10 +46,12 @@ $activity = $activity->fetchAll();
                     <h2 <?php if($user['admin'] == 1){echo "class='user-admin'";} ?>><?= $user["username"] ?></h2>
                 </div>
 
-                <?php if($user["user_id"] == $_SESSION['user']["user_id"]): ?>
-                    <div class="btn">
-                        <a href="profiles-editor.php?id=<?= $user["user_id"] ?>"><ion-icon name="settings-outline"></ion-icon></a>
-                    </div>
+                <?php if(isset($_SESSION['user'])): ?>
+                    <?php if($user["user_id"] == $_SESSION['user']["user_id"]): ?>
+                        <div class="btn">
+                            <a href="profiles-editor.php?id=<?= $user["user_id"] ?>"><ion-icon name="settings-outline"></ion-icon></a>
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
 
             </div>

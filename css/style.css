@@ -103,6 +103,12 @@ header > nav > #right > a > img {
     border-radius: 50%;
 }
 
+header > nav > #right > a > img:hover {
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease-in-out;
+}
+
 .search-btn-phone {
     display: none;
     position: fixed;
@@ -115,6 +121,63 @@ header > nav > #right > a > img {
     padding: 10px;
     border-radius: 50%;
 }
+
+.recherche {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(56, 56, 56, 0.5);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+}
+
+.recherche > .recherche-box {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recherche > .recherche-box > input {
+    width: 50%;
+    font-size: 30px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--blue);
+    color: white;
+}
+
+.recherche > .recherche-box > input:focus {
+    outline: none;
+}
+
+.recherche > .recherche-box > input::placeholder {
+    color: white;
+    opacity: 0.7;
+}   
+
+.resultats {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultat {
+    background: var(--blue);
+    padding: 20px;
+    border-radius: 20px;
+    width: 20%;
+}
+
 /* MAIN */
 
 .notification {
