@@ -22,8 +22,6 @@ window.onload = function () {
 
     document.getElementById('del').remove();
 
-    console.log(users);
-
 };
 
 search_btn.addEventListener('click', function () {

@@ -23,14 +23,20 @@ require_once "connect.php";
     <div class="container">
         <div class="content">
 
-            
+            <h1>Choisir le mode de jeu</h1>
+
+            <div class="list">
+                <div class="element">
+                    <p>Opening</p>
+                </div>
+            </div>
 
         </div>
     </div>
 
     <?php require_once "footer.php"; ?>
     
-    <script src="js/game_selection.js"></script>
+    <script src="js/selection.js"></script>
     
 </body>
 </html>
