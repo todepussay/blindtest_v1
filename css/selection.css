@@ -10,7 +10,8 @@
 }
 
 h1 {
-    margin: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
     text-align: center;
     margin-top: 80px;
     color: white;
@@ -24,6 +25,7 @@ h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .element {
@@ -34,7 +36,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid 2px white;
+    border: solid 3px white;
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 21px 21px 15px -3px rgba(0,0,0,0.1);
@@ -43,4 +45,28 @@ h1 {
 .element > p {
     color: white;
     font-size: 30px;
+}
+
+.type {
+    margin-top: 40px;
+    width: 100%;
+    display: none;
+}
+
+.type > h2 {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ranked {
+    border: solid 3px gold;
+}
+
+@keyframes ranked {
+    0% {
+        scale: 0;
+    }
+    
 }

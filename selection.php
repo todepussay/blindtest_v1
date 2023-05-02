@@ -31,7 +31,18 @@ require_once "connect.php";
                 </div>
             </div>
 
-            .   
+            <div class="type">
+                <h2>Choisir le type de partie</h2>
+
+                <div class="list">
+                    <div class="element">
+                        <p>Normal</p>
+                    </div>
+                    <div class="element ranked">
+                        <p>Classé</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
