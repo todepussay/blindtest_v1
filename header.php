@@ -21,7 +21,7 @@ $users_recherche = $sql->fetchAll();
         </div>
 
         <div id="center">
-            <a href="game_selection.php">Jouer !</a>
+            <a href="selection.php">Jouer !</a>
         </div>
 
         <div id="right">

@@ -28,20 +28,28 @@ window.onload = function () {
 
 search_btn.addEventListener('click', function () {
     recherche_div.style.display = 'block';
+    recherche_div.style.animation = "recherche-open 0.5s ease-in-out forwards";
     search.target();
 });
 
 search_btn_min.addEventListener('click', function () {
     recherche_div.style.display = 'block';
+    recherche_div.style.animation = "recherche-open 0.5s ease-in-out forwards";
     search.target();
 });
 
 close.addEventListener('click', function () {
-    recherche_div.style.display = 'none';
+    recherche_div.style.animation = "recherche-close 0.5s ease-in-out forwards";
+    setTimeout(() => {
+        recherche_div.style.display = 'none';
+    }, 500);
 });
 
 recherche_div.addEventListener('click', function () {
-    recherche_div.style.display = 'none';
+    recherche_div.style.animation = "recherche-close 0.5s ease-in-out forwards";
+    setTimeout(() => {
+        recherche_div.style.display = 'none';
+    }, 500);
 });
 
 search.addEventListener('click', function (e) {
