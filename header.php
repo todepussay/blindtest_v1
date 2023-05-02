@@ -1,6 +1,16 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
+
+<?php
+
+$sql = "SELECT users.user_id, users.username, users.picture FROM users";
+$sql = $connect->prepare($sql);
+$sql->execute();
+$users_recherche = $sql->fetchAll();
+
+?>
+
 <header>
     <nav>
         <div id="left">
@@ -31,7 +41,7 @@
             <?php endif; ?>
         </div>
 
-        <div class="search-btn-phone">
+        <div class="search-btn-phone" id="search_btn">
             <ion-icon name="search-outline"></ion-icon>
         </div>
 
@@ -39,19 +49,28 @@
 
 </header>
 
-<div class="recherche">
+<div class="recherche" id="recherche-box">
+
+    <div id="close">
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
+
     <div class="recherche-box">
         <input type="text" name="recherche" id="search" placeholder="Rechercher un utilisateur">
     </div>
     
-    <div class="resultats">
-        <a href="profils.php?id=1" class="resultat">
-            <div class="resultat-img">
-                <img src="asset/profils_picture/1.png" alt="Profils picture">
-            </div>
-            <div class="resultat-content">
-                <h3>Username</h3>
-            </div>
-        </a>
+    <div class="resultats" id="list-resultat">
+
     </div>
 </div>
+
+<div id="del">
+    <input type="hidden" id="user_max" value="<?= count($users_recherche) ?>">
+    <?php for($i = 0; $i < count($users_recherche); $i++): ?>
+        <input type="hidden" id="id_<?= $i ?>" value="<?= $users_recherche[$i]["user_id"] ?>">
+        <input type="hidden" id="username_<?= $i ?>" value="<?= $users_recherche[$i]["username"] ?>">
+        <input type="hidden" id="picture_<?= $i ?>" value="<?= $users_recherche[$i]["picture"] ?>">
+    <?php endfor; ?>
+</div>
+
+<script src="js/recherche.js"></script>

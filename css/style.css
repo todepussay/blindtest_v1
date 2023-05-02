@@ -96,6 +96,10 @@ header > nav > #right > a:hover {
     transition: all 0.3s ease-in-out;
 }
 
+header > nav > #right > #search-user {
+    cursor: pointer;
+}
+
 header > nav > #right > a > img {
     width: 50px;
     height: 50px;
@@ -132,6 +136,18 @@ header > nav > #right > a > img:hover {
     backdrop-filter: blur(2px);
     display: flex;
     flex-direction: column;
+    display: none;
+}
+
+.recherche > #close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
 }
 
 .recherche > .recherche-box {
@@ -166,16 +182,48 @@ header > nav > #right > a > img:hover {
     margin: 0 auto;
     margin-top: 50px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .resultat {
     background: var(--blue);
     padding: 20px;
     border-radius: 20px;
-    width: 20%;
+    min-width: 20%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.resultat > .resultat-img {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultat > .resultat-img > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.resultat > .resultat-content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultat > .resultat-content > h3 {
+    color: white;
+    text-decoration: none;
 }
 
 /* MAIN */
