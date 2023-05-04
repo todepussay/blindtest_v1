@@ -1,4 +1,265 @@
-/* LOGIN */
+.container-connexion {
+    min-height: calc(100vh - 120px);
+    display: flex;
+}
+
+.login {
+    width: 50%;
+    background: rgb(156,156,156);
+    background: linear-gradient(59deg, rgba(156,156,156,1) 23%, rgba(216,216,216,1) 94%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 80px;
+}
+
+.signin {
+    width: 50%;
+    background: rgb(6,101,166);
+    background: linear-gradient(59deg, rgba(6,101,166,1) 23%, rgba(11,63,98,1) 94%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 80px;
+}
+
+h2 {
+    font-size: 45px;
+    color: var(--blue);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 60%;
+    font-size: 30px;
+    padding: 10px 30px;
+    border: transparent;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    margin: 40px 0;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+    opacity: 0.7;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-bottom: 2px solid var(--orange);
+}
+
+.password {
+    width: 60%;
+    font-size: 30px;
+    padding: 10px 30px;
+    border: transparent;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    margin: 40px 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password > input[type="password"],
+.password > input[type="text"] {
+    width: 90%;
+    font-size: 30px;
+    border: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
+.password > input[type="text"] {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.password > input[type="password"]::placeholder,
+.password > input[type="text"]::placeholder {
+    opacity: 0.7;
+}
+
+.password:focus-within {
+    outline: none;
+    border-bottom: 2px solid var(--orange);
+}
+
+.password > .eye {
+    display: flex;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    min-width: 40%;
+    font-size: 30px;
+    padding: 10px 30px;
+    border: transparent;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    margin: 40px 0;
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--orange);
+    transition: 0.3s;
+}
+
+
+@media screen and (max-width: 1920px){
+
+    h2 {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        font-size: 25px;
+        width: 70%;
+        margin: 20px 0;
+    }
+
+    .password {
+        width: 70%;
+    }
+
+    .password > input[type="password"],
+    .password > input[type="text"] {
+        font-size: 25px;
+    } 
+    
+    .password {
+        margin: 20px 0;
+    }
+
+    input[type="submit"] {
+        margin: 20px 0;
+    }
+
+}
+
+@media screen and (max-width: 1440px){
+
+    h2 {
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        font-size: 20px;
+        width: 80%;
+        margin: 20px 0;
+    }
+
+    .password {
+        width: 80%;
+        font-size: 20px;
+    }
+
+    .password > input[type="password"],
+    .password > input[type="text"] {
+        font-size: 20px;
+    }
+
+    input[type="submit"] {
+        margin: 20px 0;
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 920px){
+
+    .container-connexion {
+        height: auto;
+        min-height: auto;
+        display: block;
+    }
+
+    .login {
+        width: 100%;
+        padding: 50px 30px;
+    }
+
+    .signin {
+        width: 100%;
+        padding: 50px 30px;
+    }
+
+}
+
+@media screen and (max-width: 440px) {
+
+    h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .password {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    input[type="submit"] {
+        width: 70%;
+        margin: 10px 0;
+        font-size: 15px;
+        padding: 10px 0;
+    }
+    
+}
+
+@media screen and (max-width: 340px){
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        font-size: 15px;
+        padding: 5px 20px;
+    }
+
+    .password {
+        font-size: 15px;
+        padding: 5px 20px;
+    }
+
+    .password > input[type="password"],
+    .password > input[type="text"] {
+        font-size: 15px;
+    }
+
+    input[type="submit"] {
+        font-size: 15px;
+    }
+
+}
+
+
+/* LOGIN
 
 .container-connexion {
     height: calc(100vh - 120px);
@@ -300,4 +561,4 @@ input[type="submit"]:hover {
         width: 150px;
         font-size: 15px;
     }
-}
+} */

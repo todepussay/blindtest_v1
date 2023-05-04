@@ -130,7 +130,7 @@ if (isset($_SESSION['username'])) {
 
             <div class="password">
                 <input type="password" name="password" placeholder="Mot de passe" id="password-login">
-                <button type="button" id="btn-login"><ion-icon name="eye-off-outline"></ion-icon></button>
+                <div class="eye" id="btn-password-login"><ion-icon name="eye-off-outline"></ion-icon></div>
             </div>
 
             <p class="message error">
@@ -155,12 +155,12 @@ if (isset($_SESSION['username'])) {
 
             <div class="password">
                 <input type="password" name="password" placeholder="Mot de passe" id="password-signin">
-                <button type="button" id="btn-signin"><ion-icon name="eye-off-outline"></ion-icon></button>
+                <div class="eye" id="btn-password-signin"><ion-icon name="eye-off-outline"></ion-icon></div>
             </div>
 
             <div class="password">
                 <input type="password" name="password2" placeholder="Confirmer le mot de passe" id="password-signin-confirm">
-                <button type="button" id="btn-signin-confirm"><ion-icon name="eye-off-outline"></ion-icon></button>
+                <div class="eye" id="btn-password-signin-confirm"><ion-icon name="eye-off-outline"></ion-icon></div>
             </div>
 
             <p class="message error">
