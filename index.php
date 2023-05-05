@@ -30,6 +30,7 @@ if(isset($_SESSION['user'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/blindtest/">
     <title>Accueil - Blindtest</title>
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

@@ -13,6 +13,7 @@ require_once "connect.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choix du jeu - Blindtest</title>
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/selection.css">
 </head>
