@@ -54,7 +54,7 @@ if(isset($_SESSION['user'])){
 
                     <?php for($i = 0; $i < count($activity); $i++): ?>
                         <div class="activity">
-                            <a href="profils.php?id=<?= $activity[$i]["id"] ?>" class="user-profils">
+                            <a href="user/<?= $activity[$i]["id"] ?>" class="user-profils">
                                 <img src="asset/profils_picture/<?= $activity[$i]["pp"] ?>" alt="Profil user">
                             </a>
 
@@ -69,7 +69,7 @@ if(isset($_SESSION['user'])){
                                         
                                         ?>
                                     </span><br>
-                                    <a href="profils.php?id=<?= $activity[$i]["id"] ?>" class="activity-pseudo"><?= $activity[$i]["pseudo"] ?></a> a fait un blindtest sur les <a href="game_selection.php" class="activity-categorie"><?= ucfirst($activity[$i]["categorie"]) ?></a>.
+                                    <a href="user/<?= $activity[$i]["id"] ?>" class="activity-pseudo"><?= $activity[$i]["pseudo"] ?></a> a fait un blindtest sur les <a href="selection" class="activity-categorie"><?= ucfirst($activity[$i]["categorie"]) ?></a>.
                                 </p>
                             </div>
                         </div>

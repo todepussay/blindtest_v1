@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteRule home index.php
+
+RewriteRule user/([0-9]+) profils.php?id=$1
+RewriteRule editor/([0-9]+) profiles-editor.php?id=$1
+RewriteRule selection selection.php
+RewriteRule logout logout.php
+RewriteRule login login.php

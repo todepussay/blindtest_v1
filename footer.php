@@ -5,8 +5,8 @@
 
     <div class="right">
         <ul>
-            <li><a href="logout.php">Déconnexion</a></li>
-            <li><a href="contact.php">Contacter</a></li>
+            <li><a href="logout">Déconnexion</a></li>
+            <li><a href="contact">Contacter</a></li>
         </ul>
     </div>
 </footer>

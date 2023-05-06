@@ -4,8 +4,8 @@ session_start();
 
 require('connect.php');
 
-if (isset($_SESSION['username'])) {
-    header('Location: index.php');
+if (isset($_SESSION['user'])) {
+    header('Location: /blindtest/home');
 } else {
     if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password2'])) {
         $username = htmlspecialchars($_POST['username']);
@@ -94,7 +94,7 @@ if (isset($_SESSION['username'])) {
                         unset($_SESSION['invite']);
                     }
     
-                    header('Location: index.php');
+                    header('Location: /blindtest/home');
                 } else {
                     $error_login = "Nom d'utilisateur ou mot de passe incorrect";
                 }
@@ -113,10 +113,11 @@ if (isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/blindtest/">
     <title>Connexion - Blindtest</title>
     <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/connexion.css">
 </head>
 <body>
 

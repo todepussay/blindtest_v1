@@ -14,14 +14,14 @@ $users_recherche = $sql->fetchAll();
 <header>
     <nav>
         <div id="left">
-            <a href="index.php">
+            <a href="home">
                 <!-- <img src="asset/favicon.png" alt="Logo"> -->
                 <ion-icon name="musical-notes-outline"></ion-icon>
             </a>
         </div>
 
         <div id="center">
-            <a href="selection.php">Jouer !</a>
+            <a href="selection">Jouer !</a>
         </div>
 
         <div id="right">
@@ -30,12 +30,12 @@ $users_recherche = $sql->fetchAll();
             </div>
 
             <?php if(isset($_SESSION['user'])): ?>
-                <a href="profils.php?id=<?= $_SESSION['user']['user_id'] ?>">
+                <a href="user/<?= $_SESSION['user']['user_id'] ?>">
                     <img src="asset/profils_picture/<?= $_SESSION['user']['picture'] ?>" alt="Profils picture">
                 </a>
             
             <?php else : ?>
-                <a href="login.php">
+                <a href="login">
                     <ion-icon name="person-outline"></ion-icon>
                 </a>
             <?php endif; ?>
