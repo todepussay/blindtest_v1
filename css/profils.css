@@ -29,17 +29,15 @@
     align-items: center;
 }
 
-
-
 .general > .user-details > .setting > a {
-    color: var(--white);
+    color: var(--white1);
     text-decoration: none;
     display: flex;
 }
 
 .general > .user-details > h2 {
     font-size: 70px;
-    color: var(--white);
+    color: var(--black);
     text-align: center;
     width: 100%;
 }
@@ -55,18 +53,18 @@
     font-size: 50px;
     padding: 10px;
     border-radius: 20px;
-    background-color: var(--blue);
+    background-color: var(--blue2);
     box-shadow: 21px 21px 15px -3px rgba(0,0,0,0.1);
 }
 
 .btn > a {
     text-decoration: none;
-    color: white;
+    color: var(--white1);
     display: flex;
 }
 
 .btn > a:hover {
-    color: var(--orange);
+    color: var(--blue5);
     transition: 0.3s ease-in-out;
 }
 
@@ -81,19 +79,20 @@ main {
 
 .description > h2 {
     font-size: 50px;
-    color: var(--white);
+    color: var(--black);
     margin-bottom: 20px;
     text-align: center;
     width: 100%;
 }
 
 .description > .description-box {
-    background-color: var(--blue);
+    background-color: var(--blue2);
     padding: 40px;
     border-radius: 20px;
     font-size: 25px;
     text-align: center;
     box-shadow: 21px 21px 15px -3px rgba(0,0,0,0.1);
+    color: var(--blue3);
 }
 
 .contacts {
@@ -109,7 +108,7 @@ main {
     align-items: center;
     min-width: 47%;
     max-width: 47%;
-    background-color: var(--blue);
+    background-color: var(--blue2);
     border-radius: 20px;
     padding: 10px 20px;
     margin: 10px;
@@ -135,6 +134,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: var(--blue3);
 }
 
 .contact-description > span {
