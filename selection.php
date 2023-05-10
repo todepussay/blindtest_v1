@@ -12,6 +12,7 @@ require_once "connect.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/blindtest/">
     <title>Choix du jeu - Blindtest</title>
     <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
@@ -29,19 +30,6 @@ require_once "connect.php";
             <div class="list">
                 <div class="element">
                     <p>Opening</p>
-                </div>
-            </div>
-
-            <div class="type">
-                <h2>Choisir le type de partie</h2>
-
-                <div class="list">
-                    <div class="element">
-                        <p>Normal</p>
-                    </div>
-                    <div class="element ranked">
-                        <p>Classé</p>
-                    </div>
                 </div>
             </div>
 
