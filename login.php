@@ -126,62 +126,74 @@ if (isset($_SESSION['user'])) {
     <div class="container-connexion">
         <form class="login" method="post" action="">
 
-            <h2>Connectez-vous à votre compte :</h2>
+            <div class="blur-connexion"></div>
 
-            <input type="email" name="email" placeholder="Email">
+            <div class="content">
 
-            <div class="password">
-                <input type="password" name="password" placeholder="Mot de passe" id="password-login">
-                <div class="eye" id="btn-password-login"><ion-icon name="eye-off-outline"></ion-icon></div>
+                <h2>Connectez-vous à votre compte :</h2>
+
+                <input type="email" name="email" placeholder="Email">
+
+                <div class="password">
+                    <input type="password" name="password" placeholder="Mot de passe" id="password-login">
+                    <div class="eye" id="btn-password-login"><ion-icon name="eye-off-outline"></ion-icon></div>
+                </div>
+
+                <p class="message error">
+                    <?php
+                        if (isset($error_login)){
+                            echo $error_login;
+                        }
+                    ?>
+                </p>
+                    
+                <input type="submit" value="Se connecter">
+
             </div>
-
-            <p class="message error">
-                <?php
-                    if (isset($error_login)){
-                        echo $error_login;
-                    }
-                ?>
-            </p>
-        
-            <input type="submit" value="Se connecter">
 
         </form>
 
         <form class="signin" method="post" action="">
+
+            <div class="blur-connexion"></div>
+
+            <div class="content">
             
-            <h2>Vous êtes nouveau ? Créer un nouveau compte :</h2>
+                <h2>Vous êtes nouveau ? Créer un nouveau compte :</h2>
 
-            <input type="text" name="username" placeholder="Pseudo">
+                <input type="text" name="username" placeholder="Pseudo">
 
-            <input type="text" name="email" placeholder="Email">
+                <input type="text" name="email" placeholder="Email">
 
-            <div class="password">
-                <input type="password" name="password" placeholder="Mot de passe" id="password-signin">
-                <div class="eye" id="btn-password-signin"><ion-icon name="eye-off-outline"></ion-icon></div>
+                <div class="password">
+                    <input type="password" name="password" placeholder="Mot de passe" id="password-signin">
+                    <div class="eye" id="btn-password-signin"><ion-icon name="eye-off-outline"></ion-icon></div>
+                </div>
+
+                <div class="password">
+                    <input type="password" name="password2" placeholder="Confirmer le mot de passe" id="password-signin-confirm">
+                    <div class="eye" id="btn-password-signin-confirm"><ion-icon name="eye-off-outline"></ion-icon></div>
+                </div>
+
+                <p class="message error">
+                    <?php
+                        if (isset($error)){
+                            echo $error;
+                        }
+                    ?>
+                </p>
+
+                <p class="message valid">
+                    <?php
+                        if (isset($valid)){
+                            echo $valid;
+                        }
+                    ?>
+                </p>
+
+                <input type="submit" value="S'inscrire">
+
             </div>
-
-            <div class="password">
-                <input type="password" name="password2" placeholder="Confirmer le mot de passe" id="password-signin-confirm">
-                <div class="eye" id="btn-password-signin-confirm"><ion-icon name="eye-off-outline"></ion-icon></div>
-            </div>
-
-            <p class="message error">
-                <?php
-                    if (isset($error)){
-                        echo $error;
-                    }
-                ?>
-            </p>
-
-            <p class="message valid">
-                <?php
-                    if (isset($valid)){
-                        echo $valid;
-                    }
-                ?>
-            </p>
-
-            <input type="submit" value="S'inscrire">
 
         </form>
     </div>

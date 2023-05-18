@@ -40,6 +40,7 @@ if(isset($_SESSION['user'])){
     <?php require "notification.php"; ?>
 
     <div class="container">
+        <div class="blur"></div>
         <div class="content">
 
             <div class="title">

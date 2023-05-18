@@ -3,17 +3,33 @@
     display: flex;
 }
 
+.blur-connexion {
+    width: 50%;
+    min-height: calc(100vh - 120px);
+    backdrop-filter: blur(10px);
+    position: absolute;
+}
+
+.content {
+    padding: 0;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: auto;
+}
+
 .login {
     width: 50%;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='960' height='1080' preserveAspectRatio='none' viewBox='0 0 960 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1102%26quot%3b)' fill='none'%3e%3crect width='960' height='1080' x='0' y='0' fill='url(%23SvgjsLinearGradient1103)'%3e%3c/rect%3e%3cpath d='M643.249%2c375.085C709.31%2c374.044%2c763.557%2c332.37%2c800.319%2c277.473C843.041%2c213.675%2c886.954%2c134.744%2c848.819%2c68.103C810.556%2c1.238%2c720.205%2c-0.582%2c643.249%2c2.994C574.177%2c6.204%2c503.591%2c26.319%2c468.306%2c85.785C432.393%2c146.309%2c440.945%2c222.341%2c477.362%2c282.563C512.477%2c340.631%2c575.397%2c376.155%2c643.249%2c375.085' fill='rgba(89%2c 165%2c 245%2c 0.48)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M48.82365427962854 1075.933058734748L277.7597882566102 964.2734454938939 166.10017501575598 735.3373115169122-62.835958961225685 846.9969247577665z' fill='rgba(89%2c 165%2c 245%2c 0.48)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M606.9581027478753 626.5988367594318L802.183053516618 829.1461353210194 874.0812459590252 593.9777443064949z' fill='rgba(89%2c 165%2c 245%2c 0.48)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M196.5851934112556 150.65631397971904L10.255595538406396 253.70848128833697 168.10519418252213 352.343857692233z' fill='rgba(89%2c 165%2c 245%2c 0.48)' class='triangle-float3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1102'%3e%3crect width='960' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='-3.12%25' y1='97.22%25' x2='103.13%25' y2='2.78%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1103'%3e%3cstop stop-color='rgba(220%2c 232%2c 238%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(200%2c 255%2c 255%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 0px 80px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 100px 80px;
 }
 
 .signin {
@@ -22,11 +38,9 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 0px 80px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 100px 80px;
 }
 
 h2 {
@@ -266,308 +280,3 @@ input[type="submit"]:hover {
     }
 
 }
-
-
-/* LOGIN
-
-.container-connexion {
-    height: calc(100vh - 120px);
-    display: flex;
-}
-
-.login {
-    width: 50%;
-    background: rgb(156,156,156);
-    background: linear-gradient(59deg, rgba(156,156,156,1) 23%, rgba(216,216,216,1) 94%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.login > h2 {
-    font-size: 45px;
-    color: var(--blue);
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-input[type="text"],
-input[type="email"] {
-    width: 600px;
-    font-size: 30px;
-    padding: 10px 30px;
-    border: transparent;
-    border-radius: 40px;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    margin: 40px 0;
-}
-
-input[type="text"]::placeholder,
-input[type="email"]::placeholder {
-    opacity: 0.7;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus {
-    outline: none;
-    border-bottom: 2px solid var(--orange);
-}
-
-.password {
-    width: 600px;
-    font-size: 30px;
-    padding: 10px 30px;
-    border: transparent;
-    border-radius: 40px;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    margin: 40px 0;
-    background: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.password > input[type="password"],
-.password > input[type="text"] {
-    width: 90%;
-    font-size: 30px;
-    border: transparent;
-    outline: none;
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-}
-
-.password > input[type="password"]::placeholder,
-.password > input[type="text"]::placeholder {
-    opacity: 0.7;
-}
-
-.password:focus-within {
-    outline: none;
-    border-bottom: 2px solid var(--orange);
-}
-
-.password > button {
-    width: 5%;
-    font-size: 30px;
-    border: transparent;
-    outline: none;
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-}
-
-input[type="submit"] {
-    width: 300px;
-    font-size: 30px;
-    padding: 10px 30px;
-    border: transparent;
-    border-radius: 40px;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    margin: 40px 0;
-    background-color: var(--blue);
-    color: var(--white);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-input[type="submit"]:hover {
-    background-color: var(--orange);
-    transition: 0.3s;
-}
-
-.signin {
-    width: 50%;
-    background: rgb(6,101,166);
-    background: linear-gradient(59deg, rgba(6,101,166,1) 23%, rgba(11,63,98,1) 94%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.signin > h2 {
-    font-size: 35px;
-    color: var(--white);
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.message {
-    width: 600px;
-    font-size: 30px;
-    padding: 10px 30px;
-    text-align: center;
-}
-
-.error {
-    color: rgb(173, 40, 40);
-}
-
-.valid {
-    color: rgb(40, 173, 40);
-}
-
-@media screen and (max-width: 1920px){
-
-    .login > h2 {
-        font-size: 30px;
-    }
-    
-    .signin > h2 {
-        font-size: 25px;
-    }
-}
-
-@media screen and (max-width: 1600px){
-    .login > h2,
-    .signin > h2 {
-        font-size: 25px;
-        margin-bottom: 10px;
-    }
-
-    input[type="text"],
-    input[type="email"] {
-        font-size: 25px;
-        width: 400px;
-        margin: 15px 0;
-    }
-
-    .password {
-        width: 400px;
-        margin: 15px 0;
-    }
-
-    .password > input[type="password"],
-    .password > input[type="text"] {
-        width: 90%;
-        font-size: 25px;
-    }
-
-    input[type="submit"] {
-        margin-top: 0;
-    }
-}
-
-@media screen and (max-width: 1440px){
-
-    .login > h2 {
-        margin: 40px;
-    }
-
-    .signin > h2 {
-        margin: 40px;
-    }
-
-    input[type="text"],
-    input[type="email"] {
-        font-size: 20px;
-        width: 200px;
-        margin: 20px 0;
-    }
-
-    .password {
-        width: 300px;
-    }
-
-    .password > input[type="password"],
-    .password > input[type="text"] {
-        width: 300px;
-    }
-
-    .password > button {
-        font-size: 20px;
-    }
-
-    .message {
-        width: 300px;
-        font-size: 20px;
-    }
-}
-
-@media screen and (max-width: 1000px){
-    .login > h2 {
-        margin: 30px;
-    }
-
-    .signin > h2 {
-        margin: 30px;
-    }
-    
-    input[type="text"],
-    input[type="email"], 
-    input[type="password"] {
-        font-size: 15px;
-        width: 200px;
-        margin: 20px 0;
-    }
-
-    .password {
-        width: 200px;
-    }
-
-    .password > input[type="password"],
-    .password > input[type="text"] {
-        width: 90%;
-        font-size: 15px;
-    }
-
-    input[type="submit"] {
-        width: 200px;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 760px){
-
-    .login, .signin {
-        width: 100%;
-    }
-
-    .container-connexion {
-        display: block;
-        height: auto;
-    }
-
-}
-
-@media screen and (max-width: 400px){
-    .login > h2, .signin > h2 {
-        font-size: 20px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        width: 150px;
-        font-size: 10px;
-        margin: 10px 0;
-    } 
-
-    .password {
-        width: 150px;
-    }
-
-    .password > input[type="password"],
-    .password > input[type="text"] {
-        width: 90%;
-        margin-right: 5px;
-        font-size: 10px;
-    }
-
-    .password > button {
-        font-size: 10px;
-    }
-
-    input[type="submit"] {
-        width: 150px;
-        font-size: 10px;
-    }
-
-    .message {
-        width: 150px;
-        font-size: 15px;
-    }
-} */
