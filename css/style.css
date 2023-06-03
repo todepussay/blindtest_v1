@@ -380,19 +380,21 @@ main {
 }
 
 .activity {
+    width: 50%;
+    padding: 10px 5px;
+}
+
+.activity-content {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--blue2);
     border-radius: 10px;
-    width: 45%;
-    padding: 10px 5px;
-    margin: 10px;
     box-shadow: 21px 21px 15px -3px rgba(0,0,0,0.1);
-    max-height: 110px;
+    padding: 10px;
 }
 
-.activity > .user-profils > img {
+.activity > .activity-content > .user-profils > img {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -400,18 +402,18 @@ main {
     margin: 0 20px;
 }
 
-.activity > .user-activity > .activity-details {
+.activity > .activity-content > .user-activity > .activity-details {
     font-size: 20px;
     color: var(--blue3);
 }
 
-.activity > .user-activity > .activity-details > .activity-pseudo,
-.activity > .user-activity > .activity-details > .activity-categorie {
+.activity > .activity-content > .user-activity > .activity-details > .activity-pseudo,
+.activity > .activity-content > .user-activity > .activity-details > .activity-categorie {
     color: var(--black);
     text-decoration: none;
 }
 
-.activity > .user-activity > .activity-details > .activity-date {
+.activity > .activity-content > .user-activity > .activity-details > .activity-date {
     color: var(--black);
     opacity: 0.7;
 }

@@ -4,13 +4,13 @@ session_start();
 
 require('connect.php');
 
-$sql = "SELECT users.user_id as 'id', users.username as 'pseudo', categories.name as 'categorie', score.date_score as 'date', users.picture as 'pp' FROM users, categories, score WHERE users.user_id = score.user_id AND categories.id = score.categorie_id LIMIT 10";
-$sql = $connect->prepare($sql);
-$sql->execute();
-$activity = $sql->fetchAll();
+$sql_activities = "SELECT users.user_id as 'id', users.username as 'pseudo', categories.name as 'categorie', score.date_score as 'date', users.picture as 'pp' FROM users, categories, score WHERE users.user_id = score.user_id AND categories.id = score.categorie_id LIMIT 10";
+$activities = $connect->prepare($sql_activities);
+$activities->execute();
+$activities = $activities->fetchAll();
 
-$news = "SELECT * FROM news LIMIT 3";
-$news = $connect->prepare($news);
+$sql_news = "SELECT * FROM news LIMIT 3";
+$news = $connect->prepare($sql_news);
 $news->execute();
 $news = $news->fetchAll();
 
@@ -53,28 +53,30 @@ if(isset($_SESSION['user'])){
 
                     <h2>Activité</h2>
 
-                    <?php for($i = 0; $i < count($activity); $i++): ?>
+                    <?php foreach($activities as $activity): ?>
                         <div class="activity">
-                            <a href="user/<?= $activity[$i]["id"] ?>" class="user-profils">
-                                <img src="asset/profils_picture/<?= $activity[$i]["pp"] ?>" alt="Profil user">
-                            </a>
+                            <div class="activity-content">
+                                <a href="user/<?= $activity["id"] ?>" class="user-profils">
+                                    <img src="asset/profils_picture/<?= $activity["pp"] ?>" alt="Profil user">
+                                </a>
 
-                            <div class="user-activity">
-                                <p class="activity-details">
-                                    <span class="activity-date">
-                                        <?php
+                                <div class="user-activity">
+                                    <p class="activity-details">
+                                        <span class="activity-date">
+                                            <?php
 
-                                            $date = new DateTime($activity[$i]["date"]);
-                                            $date = $date->format("d/m/Y à H:i");
-                                            echo $date;
-                                        
-                                        ?>
-                                    </span><br>
-                                    <a href="user/<?= $activity[$i]["id"] ?>" class="activity-pseudo"><?= $activity[$i]["pseudo"] ?></a> a fait un blindtest sur les <a href="selection" class="activity-categorie"><?= ucfirst($activity[$i]["categorie"]) ?></a>.
-                                </p>
+                                                $date = new DateTime($activity["date"]);
+                                                $date = $date->format("d/m/Y à H:i");
+                                                echo $date;
+
+                                            ?>
+                                        </span><br>
+                                        <a href="user/<?= $activity["id"] ?>" class="activity-pseudo"><?= $activity["pseudo"] ?></a> a fait un blindtest sur les <a href="selection" class="activity-categorie"><?= ucfirst($activity["categorie"]) ?></a>.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    <?php endfor; ?>
+                    <?php endforeach; ?>
 
                 </div>
 
@@ -82,23 +84,23 @@ if(isset($_SESSION['user'])){
                         
                     <h2>Nouveautés</h2>
 
-                    <?php for($i = 0; $i < count($news); $i++): ?>
+                    <?php foreach($news as $new): ?>
                         <div class="new">
                             <p class="new-details">
-                                <span class="new-version"><?= $news[$i]["version"] ?></span><br>
+                                <span class="new-version"><?= $new["version"] ?></span><br>
                                 <span class="new-date">
                                     <?php
 
-                                        $date = new DateTime($news[$i]["date"]);
+                                        $date = new DateTime($new["date"]);
                                         $date = $date->format("d/m/Y à H:i");
                                         echo $date;
                                     
                                     ?>
                                 </span><br><br>
-                                <?= $news[$i]["text"] ?>
+                                <?= $new["text"] ?>
                             </p>
                         </div>
-                    <?php endfor; ?>
+                    <?php endforeach; ?>
 
                 </div>
 
